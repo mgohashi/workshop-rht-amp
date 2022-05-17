@@ -4,4 +4,4 @@ metadata:
   name: my-apim
 spec:
   wildcardDomain: apps.cluster-bkmnw.bkmnw.sandbox499.opentlc.com
-  resourceRequirementsEnabled: true
+  resourceRequirementsEnabled: false
