@@ -7,13 +7,47 @@ spec:
   workloadSelector:
     labels:
       app: productpage
-  config:
-    apiVersion: maistra.io/v1
-    system:
-      name: backend-listener
-      upstream: https://backend-3scale.apps.cluster-bkmnw.bkmnw.sandbox499.opentlc.com
-      token: 7e06685d5ca405aa675f5e328c470e38edc86d24d39b64d9ad0d064c9279b057
-      ttl: 5000
   image: registry.redhat.io/openshift-service-mesh/3scale-auth-wasm-rhel8:0.0.1
   phase: PostAuthZ
   priority: 100
+  config:
+    api: v1
+    system:
+      name: system
+      token: JIQ5Cz9c1jGJE7ZV
+      upstream:
+        name: >-
+          outbound|3000||system-provider.amp.svc.cluster.local
+        timeout: 5000
+        url: 'http://system-provider.amp.svc.cluster.local'
+    backend:
+      extensions:
+      - no_body
+      name: backend
+      upstream:
+        name: >-
+          outbound|3000||backend-listener.amp.svc.cluster.local
+        timeout: 5000
+        url: 'http://backend-listener.amp.svc.cluster.local'
+    services:
+    - id: '3'
+      token: 7e06685d5ca405aa675f5e328c470e38edc86d24d39b64d9ad0d064c9279b057
+      authorities:
+      - '*'
+      credentials:
+        app_id:
+        - filter:
+            path:
+            - envoy.filters.http.jwt_authn
+            - "0"
+            keys:
+            - azp
+            ops:
+            - take:
+                head: 1
+      mapping_rules:
+      - method: GET
+        pattern: /
+        usages:
+        - delta: 1
+          name: hits
