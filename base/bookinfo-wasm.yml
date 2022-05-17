@@ -36,15 +36,26 @@ spec:
       - '*'
       credentials:
         app_id:
-        - filter:
-            path:
-            - envoy.filters.http.jwt_authn
-            - "0"
+        - header:
             keys:
-            - azp
-            ops:
-            - take:
-                head: 1
+            - app_id
+        - query_string:
+            keys:
+            - app_id
+        app_key:
+        - header:
+            keys:
+            - app_key
+        - query_string:
+            keys:
+            - app_key
+        user_key:
+        - query_string:
+            keys:
+            - user_key
+        - header:
+            keys:
+            - user_key
       mapping_rules:
       - method: GET
         pattern: /
