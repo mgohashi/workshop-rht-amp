@@ -49,13 +49,13 @@ spec:
         - query_string:
             keys:
             - app_key
-        user_key:
-        - query_string:
-            keys:
-            - user_key
-        - header:
-            keys:
-            - user_key
+#        user_key:
+#        - query_string:
+#            keys:
+#            - user_key
+#        - header:
+#            keys:
+#            - user_key
       mapping_rules:
       - method: GET
         pattern: /
