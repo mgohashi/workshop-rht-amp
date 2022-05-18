@@ -86,6 +86,7 @@ spec:
                 - envoy.filters.http.jwt_authn
                 - "0"
               keys:
+                - aud
                 - azp
               ops:
                 - take:
