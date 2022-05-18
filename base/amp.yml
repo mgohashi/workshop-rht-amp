@@ -13,7 +13,6 @@ spec:
     sidekiqSpec:
       replicas: 0
     sphinxSpec: {}
-    appLabel: 3scale-api-management
   zync:
     appSpec:
       replicas: 0
