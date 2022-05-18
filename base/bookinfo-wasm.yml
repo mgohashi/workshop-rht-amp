@@ -28,6 +28,21 @@ spec:
      protocol: HTTP
  resolution: DNS
 ---
+apiVersion: security.istio.io/v1beta1
+kind: RequestAuthentication
+metadata:
+  name: bookinfo-oidc
+  namespace: bookinfo
+spec:
+  selector:
+    matchLabels:
+      app: productpage
+  jwtRules:
+  - issuer: >-
+      https://keycloak-sso.apps.cluster-bkmnw.bkmnw.sandbox499.opentlc.com/auth/realms/master
+    jwksUri: >-
+      https://keycloak-sso.apps.cluster-bkmnw.bkmnw.sandbox499.opentlc.com/auth/realms/master/protocol/openid-connect/certs
+---
 apiVersion: maistra.io/v1
 kind: ServiceMeshExtension
 metadata:
