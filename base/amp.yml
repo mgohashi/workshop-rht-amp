@@ -7,3 +7,31 @@ spec:
   resourceRequirementsEnabled: false
   imagePullSecrets:
   - name: 6340056-mo-lab-1-pull-secret
+  system:
+    appSpec:
+      replicas: 0
+    sidekiqSpec:
+      replicas: 0
+    sphinxSpec: {}
+    appLabel: 3scale-api-management
+  zync:
+    appSpec:
+      replicas: 0
+    queSpec:
+      replicas: 0
+  backend:
+    cronSpec:
+      replicas: 0
+    listenerSpec:
+      replicas: 0
+    workerSpec:
+      replicas: 0
+    tenantName: 3scale
+  apicast:
+    managementAPI: status
+    openSSLVerify: false
+    productionSpec:
+      replicas: 0
+    responseCodes: true
+    stagingSpec:
+      replicas: 0
