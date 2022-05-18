@@ -26,7 +26,7 @@ spec:
       replicas: 0
     workerSpec:
       replicas: 0
-    tenantName: 3scale
+  tenantName: 3scale
   apicast:
     managementAPI: status
     openSSLVerify: false
