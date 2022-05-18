@@ -42,7 +42,7 @@ spec:
     api: v1
     system:
       name: system
-      token: 7e06685d5ca405aa675f5e328c470e38edc86d24d39b64d9ad0d064c9279b057
+      token: aa50e73eef893e401cbbe89c4c23c554cf46acfe0432214bef5e5f2e66b953ca
       upstream:
         name: >-
           outbound|3000||system-provider.amp.svc.cluster.local
@@ -59,24 +59,17 @@ spec:
         url: 'http://backend-listener.amp.svc.cluster.local'
     services:
     - id: '3'
-      token: d3df0df99b79f5168cc743afe37ae3140b6ef108461eee58adbd13f3982bd73c
+      token: 22214358bf38370f03e305ea1f986106e752691003a258e5e4bd247cde0fbe13
       authorities:
       - '*'
       credentials:
-        app_id:
+        user_key:
         - header:
             keys:
-            - app_id
+            - user_key
         - query_string:
             keys:
-            - app_id
-        app_key:
-        - header:
-            keys:
-            - app_key
-        - query_string:
-            keys:
-            - app_key
+            - user_key
       mapping_rules:
       - method: GET
         pattern: /
