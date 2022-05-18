@@ -2,6 +2,7 @@ apiVersion: networking.istio.io/v1beta1
 kind: ServiceEntry
 metadata:
  name: system-entry
+ namespace: bookinfo
 spec:
  hosts:
    - system-provider.amp.svc.cluster.local
@@ -16,6 +17,7 @@ apiVersion: networking.istio.io/v1beta1
 kind: ServiceEntry
 metadata:
  name: backend-entry
+ namespace: bookinfo
 spec:
  hosts:
    - backend-listener.amp.svc.cluster.local
