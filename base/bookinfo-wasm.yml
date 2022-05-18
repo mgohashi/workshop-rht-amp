@@ -78,7 +78,7 @@ spec:
     - id: '3'
       token: 22214358bf38370f03e305ea1f986106e752691003a258e5e4bd247cde0fbe13
       authorities:
-      - '*'
+        - '*'
       credentials:
         app_id:
           - filter:
@@ -86,14 +86,13 @@ spec:
                 - envoy.filters.http.jwt_authn
                 - "0"
               keys:
-                - aud
                 - azp
               ops:
                 - take:
                     head: 1
       mapping_rules:
-      - method: GET
-        pattern: /
-        usages:
-        - delta: 1
-          name: hits
+        - method: GET
+          pattern: /
+          usages:
+            - delta: 1
+              name: hits
