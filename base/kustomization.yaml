@@ -3,4 +3,4 @@ kind: Kustomization
 
 resources:
 - amp.yml
-#- bookinfo-wasm.yml
+- bookinfo-wasm.yml
