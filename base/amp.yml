@@ -10,28 +10,28 @@ spec:
   - name: 6340056-mo-lab-1-pull-secret
   system:
     appSpec:
-      replicas: 0
+      replicas: 1
     sidekiqSpec:
-      replicas: 0
+      replicas: 1
     sphinxSpec: {}
   zync:
     appSpec:
-      replicas: 0
+      replicas: 1
     queSpec:
-      replicas: 0
+      replicas: 1
   backend:
     cronSpec:
-      replicas: 0
+      replicas: 1
     listenerSpec:
-      replicas: 0
+      replicas: 1
     workerSpec:
-      replicas: 0
+      replicas: 1
   tenantName: 3scale
   apicast:
     managementAPI: status
     openSSLVerify: false
     productionSpec:
-      replicas: 0
+      replicas: 1
     responseCodes: true
     stagingSpec:
-      replicas: 0
+      replicas: 1
