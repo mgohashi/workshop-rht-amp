@@ -4,6 +4,7 @@ metadata:
   name: my-apim
 spec:
   wildcardDomain: apps.cluster-bkmnw.bkmnw.sandbox499.opentlc.com
+  imageStreamTagImportInsecure: false
   resourceRequirementsEnabled: false
   imagePullSecrets:
   - name: 6340056-mo-lab-1-pull-secret
