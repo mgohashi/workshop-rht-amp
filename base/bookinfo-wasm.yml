@@ -1,3 +1,31 @@
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+ name: system-entry
+spec:
+ hosts:
+   - system-provider.amp.svc.cluster.local
+ location: MESH_EXTERNAL
+ ports:
+   - name: http
+     number: 3000
+     protocol: HTTP
+ resolution: DNS
+---
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+ name: backend-entry
+spec:
+ hosts:
+   - backend-listener.amp.svc.cluster.local
+ location: MESH_EXTERNAL
+ ports:
+   - name: http
+     number: 3000
+     protocol: HTTP
+ resolution: DNS
+---
 apiVersion: maistra.io/v1
 kind: ServiceMeshExtension
 metadata:
@@ -55,31 +83,3 @@ spec:
         usages:
         - delta: 1
           name: hits
----
-apiVersion: networking.istio.io/v1beta1
-kind: ServiceEntry
-metadata:
- name: system-entry
-spec:
- hosts:
-   - system-provider.amp.svc.cluster.local
- location: MESH_EXTERNAL
- ports:
-   - name: http
-     number: 3000
-     protocol: HTTP
- resolution: DNS
----
-apiVersion: networking.istio.io/v1beta1
-kind: ServiceEntry
-metadata:
- name: backend-entry
-spec:
- hosts:
-   - backend-listener.amp.svc.cluster.local
- location: MESH_EXTERNAL
- ports:
-   - name: http
-     number: 3000
-     protocol: HTTP
- resolution: DNS
