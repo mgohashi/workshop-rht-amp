@@ -81,14 +81,15 @@ spec:
       - '*'
       credentials:
         app_id:
-          - filter:
-              path:
-                - envoy.filters.http.jwt_authn
-                - "0"
+          - header:
               keys:
-                - azp
-                - aud
+                - x-jwt-payload
               ops:
+                - base64_urlsafe
+                - json:
+                  - keys:
+                    - azp
+                    - aud
                 - take:
                     head: 1
       mapping_rules:
