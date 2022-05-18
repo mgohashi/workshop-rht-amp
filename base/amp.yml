@@ -5,3 +5,5 @@ metadata:
 spec:
   wildcardDomain: apps.cluster-bkmnw.bkmnw.sandbox499.opentlc.com
   resourceRequirementsEnabled: false
+  imagePullSecrets:
+  - name: 6340056-mo-lab-1-pull-secret
