@@ -65,20 +65,30 @@ spec:
       authorities:
       - '*'
       credentials:
+        # app_id:
+        # - header:
+        #     keys:
+        #     - app_id
+        # - query_string:
+        #     keys:
+        #     - app_id
+        # app_key:
+        # - header:
+        #     keys:
+        #     - app_key
+        # - query_string:
+        #     keys:
+        #     - app_key
         app_id:
-        - header:
+        - filter:
+            path:
+            - envoy.filters.http.jwt_authn
+            - "0"
             keys:
-            - app_id
-        - query_string:
-            keys:
-            - app_id
-        app_key:
-        - header:
-            keys:
-            - app_key
-        - query_string:
-            keys:
-            - app_key
+            - azp
+            ops:
+            - take:
+                head: 1
       mapping_rules:
       - method: GET
         pattern: /
