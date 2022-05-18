@@ -80,7 +80,7 @@ spec:
       authorities:
         - '*'
       credentials:
-        app_id:
+        app_key:
           - filter:
               path:
                 - envoy.filters.http.jwt_authn
