@@ -89,7 +89,7 @@ spec:
                 - azp
               ops:
                 - take:
-                  head: 1
+                    head: 1
       mapping_rules:
       - method: GET
         pattern: /
