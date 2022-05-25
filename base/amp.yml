@@ -3,7 +3,7 @@ kind: APIManager
 metadata:
   name: my-apim
 spec:
-  wildcardDomain: apps.cluster-bkmnw.bkmnw.sandbox499.opentlc.com
+  wildcardDomain: apps.cluster-fphhv.fphhv.sandbox1022.opentlc.com
   imageStreamTagImportInsecure: false
   resourceRequirementsEnabled: false
   imagePullSecrets:
